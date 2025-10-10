@@ -1,0 +1,21 @@
+[versions]
+agp = "8.12.2"
+kotlin = "2.2.20"
+android-minSdk = "28"
+android-compileSdk = "36"
+kotlinxCoroutinesCore = "1.10.2"
+lifecycleProcess = "2.9.3"
+vanniktech = "0.31.0"
+swiftklib = "0.6.4"
+applovin-sdk = "13.4.0"
+
+[libraries]
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "lifecycleProcess" }
+applovin-sdk = { group = "com.applovin", name = "applovin-sdk", version.ref = "applovin-sdk" }
+
+[plugins]
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech" }
+swiftklib = { id = "io.github.ttypic.swiftklib", version.ref = "swiftklib" }
