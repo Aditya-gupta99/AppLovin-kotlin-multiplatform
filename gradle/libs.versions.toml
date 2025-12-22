@@ -1,21 +1,30 @@
 [versions]
-agp = "8.12.2"
-kotlin = "2.2.20"
+agp = "8.12.3"
+kotlin = "2.3.0"
 android-minSdk = "28"
 android-compileSdk = "36"
 kotlinxCoroutinesCore = "1.10.2"
 lifecycleProcess = "2.9.3"
+compose = "1.9.0"
+compose-compiler = "2.2.20"
 vanniktech = "0.31.0"
 swiftklib = "0.6.4"
 applovin-sdk = "13.4.0"
+cocopods = "2.3.0-Beta1"
 
 [libraries]
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "lifecycleProcess" }
 applovin-sdk = { group = "com.applovin", name = "applovin-sdk", version.ref = "applovin-sdk" }
 
+compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose" }
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose" }
+compose-material = { module = "org.jetbrains.compose.material:material", version.ref = "compose" }
+
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech" }
 swiftklib = { id = "io.github.ttypic.swiftklib", version.ref = "swiftklib" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "compose-compiler" }
+kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "cocopods" }

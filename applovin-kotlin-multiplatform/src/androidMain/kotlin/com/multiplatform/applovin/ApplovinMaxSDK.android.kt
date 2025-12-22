@@ -46,7 +46,9 @@ actual class ApplovinMaxSDK {
         applovinSdk.settings.setVerboseLogging(debugMode)
     }
 
-    actual fun loadInterstitial(adUnitId: String) {
+    actual fun loadInterstitial(
+        adUnitId: String
+    ) {
 
         interstitialAds.getOrPut(adUnitId) {
             MaxInterstitialAd(adUnitId).apply {

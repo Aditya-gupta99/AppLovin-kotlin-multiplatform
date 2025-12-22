@@ -6,10 +6,12 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.vanniktech.mavenPublish)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlinCocoapods)
 }
 
 group = "io.github.aditya-gupta99"
-version = "1.0.0"
+version = "1.0.3"
 
 kotlin {
     androidTarget {
@@ -20,14 +22,29 @@ kotlin {
         }
     }
 
+    cocoapods {
+        summary = "AppLovin MAX SDK wrapper for Kotlin Multiplatform"
+        homepage = "https://github.com/Aditya-gupta99/AppLovin-kotlin-multiplatform"
+        version = "1.0.0"
+        ios.deploymentTarget = "15.0"
+
+        framework {
+            baseName = "applovin_kotlin_multiplatform"
+        }
+
+        pod("AppLovinSDK") {
+            version = "13.0.1"
+        }
+    }
+
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "applovin-koltin-multiplatform"
-            isStatic = false
+            baseName = "ApplovinMaxSDK"
+            isStatic = true
         }
     }
 
@@ -37,6 +54,9 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.compose.runtime)
+                implementation(libs.compose.foundation)
+                implementation(libs.compose.material)
             }
         }
 
