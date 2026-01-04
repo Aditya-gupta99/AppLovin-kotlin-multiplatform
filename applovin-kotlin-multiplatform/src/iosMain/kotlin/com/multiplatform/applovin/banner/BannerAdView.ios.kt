@@ -1,12 +1,23 @@
+@file:OptIn(ExperimentalForeignApi::class)
+
 package com.multiplatform.applovin.banner
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.interop.UIKitView
+import cocoapods.AppLovinSDK.MAAd
+import cocoapods.AppLovinSDK.MAAdFormat
+import cocoapods.AppLovinSDK.MAAdView
+import cocoapods.AppLovinSDK.MAAdViewAdDelegateProtocol
+import cocoapods.AppLovinSDK.MAError
 import com.multiplatform.applovin.utils.BannerSize
-import kotlinx.cinterop.*
+import kotlinx.cinterop.ExperimentalForeignApi
 import platform.darwin.NSObject
-import cocoapods.AppLovinSDK.*
 
 @Composable
 actual fun BannerAdView(
@@ -22,7 +33,7 @@ actual fun BannerAdView(
 
     DisposableEffect(adUnitId) {
         onDispose {
-            adView?.destroy()
+//            adView?.destroy()
             adView = null
         }
     }

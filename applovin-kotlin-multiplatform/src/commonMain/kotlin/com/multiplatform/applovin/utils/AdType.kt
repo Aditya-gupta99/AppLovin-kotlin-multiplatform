@@ -5,7 +5,7 @@ package com.multiplatform.applovin.utils
  */
 enum class AdType {
     BANNER,
+    MREC,
     INTERSTITIAL,
-    REWARDED,
-    MREC
+    REWARDED
 }
